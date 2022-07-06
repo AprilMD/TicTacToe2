@@ -17,7 +17,11 @@ class TicTacToe
     end
 
     def row_and_column_exist(row, column)
-        return ((1 <= row) && (row <= 3)) && ((1 <= column) && (column <= 3))
+        ((1 <= row) && (row <= 3)) && ((1 <= column) && (column <= 3))
+    end
+
+    def cell_is_available(row, column)
+        @board[(row-1)][(column-1)] == '-'
     end
 
 end
