@@ -12,12 +12,12 @@ describe 'tictactoe game'
         it 'changes the variable row to the given row' do
             game = TicTacToe.new
             game.ask_player_move
-            expect(game.row).not_to eql(0)
+            expect(game.row).not_to eql(nil)
         end
         it 'changes the variable column to the given column' do
             game = TicTacToe.new
             game.ask_player_move
-            expect(game.column).not_to eql(0)
+            expect(game.column).not_to eql(nil)
         end
     end
 
@@ -60,3 +60,15 @@ describe 'tictactoe game'
             end
         end
     end
+
+    describe 'it determines which player (X or Y) based on player turn' do
+        it 'returns "O" player symbol if player count is odd' do
+            game = TicTacToe.new
+            expect(game.determine_player_symbol(1)).to eql("O")
+        end
+        it 'returns "X" player symbol if player count is even' do
+            game = TicTacToe.new
+            expect(game.determine_player_symbol(2)).to eql("X")
+        end
+    end
+

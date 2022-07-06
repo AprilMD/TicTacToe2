@@ -4,8 +4,7 @@ class TicTacToe
     attr_accessor :column
     def initialize()
         @board = [["-","-","-"],["-","-","-"],["-","-","-"]]
-        @row = 0
-        @column = 0
+        @turn_count = 0
     end
 
     def ask_player_move
@@ -23,5 +22,14 @@ class TicTacToe
     def cell_is_available(row, column)
         @board[(row-1)][(column-1)] == '-'
     end
+
+    def determine_player_symbol(turn_count)
+        if turn_count % 2 == 0
+            "X"
+        else
+            "O"
+        end
+    end
+
 
 end
