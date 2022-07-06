@@ -1,4 +1,5 @@
-# TicTacToe Game
+
+# TicTacToe Game  
 
 ## Using the discipline of TDD, build a game of tic tac toe:
 - Requirements are outlined here: https://learn.madetech.com/sparring/tic-tac-toe/
@@ -11,11 +12,14 @@
 - The first player to get 3 of their marks in a row is the winner.
 - If all 9 squares are full and no player has 3 marks in a row, the game is over with a tie.
 
-## Set up rspec in terminal after cloning:
+
+## Set up rspec in terminal after cloning:
+
 To setup rspec, enter the following in the terminal:
 ```bundle install --path vendor/bundle```
 
 ## Playing the game:
+
 To play the game, run the play_game.rb file or type ```ruby play_game.rb``` at the project root
 
 
