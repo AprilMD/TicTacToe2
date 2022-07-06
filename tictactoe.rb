@@ -15,4 +15,9 @@ class TicTacToe
         @column = gets.chomp.to_i
         return @row, @column
     end
+
+    def row_and_column_exist(row, column)
+        return ((1 <= row) && (row <= 3)) && ((1 <= column) && (column <= 3))
+    end
+
 end

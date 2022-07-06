@@ -20,3 +20,30 @@ describe 'tictactoe game'
             expect(game.column).not_to eql(0)
         end
     end
+
+    describe 'check input validity' do
+        it 'returns true if row and column numbers are between 1 and 3' do
+            game = TicTacToe.new
+            expect(game.row_and_column_exist(2,2)).to eql(true)
+        end
+
+        it 'returns false is row is 0 or fewer' do
+            game = TicTacToe.new
+            expect(game.row_and_column_exist(0,2)).to eql(false)
+        end
+
+        it 'returns false is column is 0 or fewer' do
+            game = TicTacToe.new
+            expect(game.row_and_column_exist(2,0)).to eql(false)
+        end
+
+        it 'returns false is row is 4 or higher' do
+            game = TicTacToe.new
+            expect(game.row_and_column_exist(12,3)).to eql(false)
+        end
+
+        it 'returns false is column is 4 or higher' do
+            game = TicTacToe.new
+            expect(game.row_and_column_exist(1,9)).to eql(false)
+        end
+    end
