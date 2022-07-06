@@ -10,6 +10,10 @@ class TicTacToe
         @turn_count = 0
     end
 
+    def print_board
+        print " #{@board[0][0]} | #{@board[0][1]} | #{@board[0][2]} \n-----------\n #{@board[1][0]} | #{@board[1][1]} | #{@board[1][2]} \n-----------\n #{@board[2][0]} | #{@board[2][1]} | #{@board[2][2]} "
+    end
+
     def ask_player_move
         puts "What row do you want to place your marker in?"
         @row = gets.chomp.to_i

@@ -133,5 +133,13 @@ describe 'tictactoe game'
         end
     end
 
+    describe 'prints board' do
+        it 'prints the board to the terminal in a readable format' do
+            game = TicTacToe.new
+            board_view = " - | - | - \n-----------\n - | - | - \n-----------\n - | - | - "
+            expect{ game.print_board }.to output(board_view).to_stdout
+        end
+    end
+        
 
    
