@@ -33,5 +33,9 @@ class TicTacToe
         end
     end
 
+    def execute_move(row, column, player)
+        @board[(row-1)][(column-1)] = player
+    end
+
 
 end

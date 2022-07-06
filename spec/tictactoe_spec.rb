@@ -72,16 +72,20 @@ describe 'tictactoe game'
             game.determine_player_symbol(2)
             expect(game.player).to eql("X")
         end
-
     end
 
-
-    # describe 'it lets the player take a turn' do
-    #     it 'places an "X" on an even turn number into the given cell'
-    #         game = TicTacToe.new
-    #         expect(game.execute_move(1,1)).to eql("X")
-    #     end
-    # end
+    describe 'it lets the player take a turn' do
+        it 'places player symbol into the given cell' do
+            game = TicTacToe.new
+            game.execute_move(1, 1, "X")
+            expect(game.board[0][0]).to eql("X")
+        end
+        it 'places player symbol into the given cell' do
+            game = TicTacToe.new
+            game.execute_move(2, 3, "O")
+            expect(game.board[1][2]).to eql("O")
+        end
+    end
 
 
    
