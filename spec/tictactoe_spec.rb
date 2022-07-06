@@ -129,17 +129,16 @@ describe 'tictactoe game'
         it 'returns false if board is not full' do
             game = TicTacToe.new
             game.board = [["O","X","X"],["X","-","X"],["O","X","O"]]
-            expect(game.board_full).to eq(true)
+            expect(game.board_full).to eq(false)
         end
     end
 
     describe 'prints board' do
         it 'prints the board to the terminal in a readable format' do
             game = TicTacToe.new
-            board_view = " - | - | - \n-----------\n - | - | - \n-----------\n - | - | - "
+            board_view = " - | - | - \n-----------\n - | - | - \n-----------\n - | - | - \n"
             expect{ game.print_board }.to output(board_view).to_stdout
         end
     end
-        
 
    

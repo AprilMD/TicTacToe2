@@ -11,7 +11,7 @@ class TicTacToe
     end
 
     def print_board
-        print " #{@board[0][0]} | #{@board[0][1]} | #{@board[0][2]} \n-----------\n #{@board[1][0]} | #{@board[1][1]} | #{@board[1][2]} \n-----------\n #{@board[2][0]} | #{@board[2][1]} | #{@board[2][2]} "
+        print " #{@board[0][0]} | #{@board[0][1]} | #{@board[0][2]} \n-----------\n #{@board[1][0]} | #{@board[1][1]} | #{@board[1][2]} \n-----------\n #{@board[2][0]} | #{@board[2][1]} | #{@board[2][2]} \n"
     end
 
     def ask_player_move
@@ -19,7 +19,6 @@ class TicTacToe
         @row = gets.chomp.to_i
         puts "and your column?"
         @column = gets.chomp.to_i
-        return @row, @column
     end
 
     def row_and_column_exist(row, column)
@@ -65,10 +64,9 @@ class TicTacToe
             row.each do |cell|
                 if cell == "-"
                     return false
-                else
-                    return true
                 end
             end
         end
+        return true
     end
 end
