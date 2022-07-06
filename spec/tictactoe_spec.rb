@@ -61,7 +61,7 @@ describe 'tictactoe game'
         end
     end
 
-    describe 'it determines which player (X or Y) based on player turn' do
+    describe 'player (X or Y) is determined based on player turn' do
         it 'makes player_symbol "O" when turn count is odd' do
             game = TicTacToe.new
             game.determine_player_symbol(1)
@@ -74,7 +74,7 @@ describe 'tictactoe game'
         end
     end
 
-    describe 'it lets the player take a turn' do
+    describe 'player turn' do
         it 'places player symbol into the given cell' do
             game = TicTacToe.new
             game.execute_move(1, 1, "X")
@@ -90,6 +90,46 @@ describe 'tictactoe game'
             game.execute_move(2, 3, "O")
             game.execute_move(1, 1, "X")
             expect(game.turn_count).to eql(2)
+        end
+    end
+    describe 'check for any winning combinations' do
+        it 'returns true if there is a winning horizontal combination for the first row' do
+            game = TicTacToe.new
+            game.board = [["X","X","X"],["-","-","-"],["-","-","-"]]
+            expect(game.player_won("X")).to eq(true)
+        end
+        it 'returns true if there is a winning horizontal combination for the third row' do
+            game = TicTacToe.new
+            game.board = [["-","-","-"],["-","-","-"],["O","O","O"]]
+            expect(game.player_won("O")).to eq(true)
+        end
+        it 'returns true if there is a winning verticle combination for the second column' do
+            game = TicTacToe.new
+            game.board = [["-","X","-"],["-","X","-"],["-","X","-"]]
+            expect(game.player_won("X")).to eq(true)
+        end
+        it 'returns true if there is a winning diagonal combination' do
+            game = TicTacToe.new
+            game.board = [["O","-","-"],["-","O","-"],["-","-","O"]]
+            expect(game.player_won("O")).to eq(true)
+        end
+        it 'returns false if there is no winning combination' do
+            game = TicTacToe.new
+            game.board = [["O","-","X"],["-","O","X"],["O","X","-"]]
+            expect(game.player_won("O")).to eq(false)
+        end
+    end
+
+    describe 'checks if board is full' do
+        it 'returns true if board full' do
+            game = TicTacToe.new
+            game.board = [["O","X","X"],["X","O","X"],["O","X","O"]]
+            expect(game.board_full).to eq(true)
+        end
+        it 'returns false if board is not full' do
+            game = TicTacToe.new
+            game.board = [["O","X","X"],["X","-","X"],["O","X","O"]]
+            expect(game.board_full).to eq(true)
         end
     end
 

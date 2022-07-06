@@ -39,4 +39,32 @@ class TicTacToe
         @turn_count +=1
     end
 
+    def player_won(player)
+        winning_combinations = [
+            # horizontal
+            ((@board[0][0] == player) && (@board[0][1] == player) && (@board[0][2] == player)),
+            ((@board[1][0] == player) && (@board[1][1] == player) && (@board[1][2] == player)),
+            ((@board[2][0] == player) && (@board[2][1] == player) && (@board[2][2] == player)),
+            # verticle
+            ((@board[0][0] == player) && (@board[1][0] == player) && (@board[2][0] == player)),
+            ((@board[0][1] == player) && (@board[1][1] == player) && (@board[2][1] == player)),
+            ((@board[0][2] == player) && (@board[1][2] == player) && (@board[2][2] == player)),
+            # diagonal
+            ((@board[0][0] == player) && (@board[1][1] == player) && (@board[2][2] == player)),
+            ((@board[0][2] == player) && (@board[1][1] == player) && (@board[2][0] == player)),
+        ]
+        winning_combinations.include? true
+    end
+
+    def board_full
+        @board.each do |row|
+            row.each do |cell|
+                if cell == "-"
+                    return false
+                else
+                    return true
+                end
+            end
+        end
+    end
 end
