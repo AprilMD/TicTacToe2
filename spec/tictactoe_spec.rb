@@ -62,13 +62,26 @@ describe 'tictactoe game'
     end
 
     describe 'it determines which player (X or Y) based on player turn' do
-        it 'returns "O" player symbol if player count is odd' do
+        it 'makes player_symbol "O" when turn count is odd' do
             game = TicTacToe.new
-            expect(game.determine_player_symbol(1)).to eql("O")
+            game.determine_player_symbol(1)
+            expect(game.player).to eql("O")
         end
-        it 'returns "X" player symbol if player count is even' do
+        it 'makes player_symbol "X" when turn count is even' do
             game = TicTacToe.new
-            expect(game.determine_player_symbol(2)).to eql("X")
+            game.determine_player_symbol(2)
+            expect(game.player).to eql("X")
         end
+
     end
 
+
+    # describe 'it lets the player take a turn' do
+    #     it 'places an "X" on an even turn number into the given cell'
+    #         game = TicTacToe.new
+    #         expect(game.execute_move(1,1)).to eql("X")
+    #     end
+    # end
+
+
+   

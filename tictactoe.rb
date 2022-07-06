@@ -2,6 +2,8 @@ class TicTacToe
     attr_accessor :board
     attr_accessor :row
     attr_accessor :column
+    attr_accessor :player
+
     def initialize()
         @board = [["-","-","-"],["-","-","-"],["-","-","-"]]
         @turn_count = 0
@@ -25,9 +27,9 @@ class TicTacToe
 
     def determine_player_symbol(turn_count)
         if turn_count % 2 == 0
-            "X"
+            @player = "X"
         else
-            "O"
+            @player = "O"
         end
     end
 
