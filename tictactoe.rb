@@ -3,6 +3,7 @@ class TicTacToe
     attr_accessor :row
     attr_accessor :column
     attr_accessor :player
+    attr_accessor :turn_count
 
     def initialize()
         @board = [["-","-","-"],["-","-","-"],["-","-","-"]]
@@ -35,7 +36,7 @@ class TicTacToe
 
     def execute_move(row, column, player)
         @board[(row-1)][(column-1)] = player
+        @turn_count +=1
     end
-
 
 end

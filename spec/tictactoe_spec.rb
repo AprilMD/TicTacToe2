@@ -85,6 +85,12 @@ describe 'tictactoe game'
             game.execute_move(2, 3, "O")
             expect(game.board[1][2]).to eql("O")
         end
+        it 'increments the turn count' do
+            game = TicTacToe.new
+            game.execute_move(2, 3, "O")
+            game.execute_move(1, 1, "X")
+            expect(game.turn_count).to eql(2)
+        end
     end
 
 
